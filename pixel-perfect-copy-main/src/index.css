@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+
+  /* LIGHT THEME */
+  :root,
+  .light {
+    --background: 220 27% 98%;
+    /* Cultured #F9FAFC */
+    --foreground: 210 41% 6%;
+    /* Rich Black #090F15 (Text) */
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 41% 6%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 41% 6%;
+
+    --primary: 217 87% 51%;
+    /* Bluetiful #1667EE */
+    --primary-foreground: 220 27% 98%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 210 41% 6%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 20% 45%;
+
+    --accent: 217 87% 51%;
+    --accent-foreground: 220 27% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 87% 51%;
+
+    --radius: 0.75rem;
+    /* More rounded/friendly */
+
+    /* Custom colors */
+    --emerald: 150 100% 35%;
+    /* Brighter/Crisper */
+    --emerald-light: 150 80% 45%;
+    --cyan: 190 90% 50%;
+    --amber: 40 100% 55%;
+    --orange: 25 100% 60%;
+    --blue: 217 87% 51%;
+    /* Align with Bluetiful */
+    --rose: 340 85% 60%;
+
+    /* Chart colors */
+    --chart-1: 217 87% 51%;
+    /* Bluetiful */
+    --chart-2: 218 80% 39%;
+    /* Sapphire #124EB3 */
+    --chart-3: 217 82% 26%;
+    /* Dark Cornflower #0C3578 */
+    --chart-4: 40 100% 55%;
+    /* Pop of Amber */
+    --chart-5: 190 90% 50%;
+    /* Pop of Cyan */
+
+    --sidebar-background: 220 27% 98%;
+    --sidebar-foreground: 210 41% 6%;
+    --sidebar-primary: 217 87% 51%;
+    --sidebar-primary-foreground: 220 27% 98%;
+    --sidebar-accent: 220 14% 94%;
+    --sidebar-accent-foreground: 210 41% 6%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217 87% 51%;
+  }
+
+  /* DARK THEME (Premium Look) */
+  .dark {
+    --background: 210 41% 6%;
+    /* Rich Black #090F15 */
+    --foreground: 220 27% 98%;
+    /* Cultured #F9FAFC */
+
+    --card: 210 41% 9%;
+    /* Slightly lighter than bg */
+    --card-foreground: 220 27% 98%;
+
+    --popover: 210 41% 9%;
+    --popover-foreground: 220 27% 98%;
+
+    --primary: 217 87% 51%;
+    /* Bluetiful #1667EE */
+    --primary-foreground: 220 27% 98%;
+
+    --secondary: 217 82% 16%;
+    /* Dark Cornflower Mixed with Black */
+    --secondary-foreground: 220 27% 98%;
+
+    --muted: 215 25% 12%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 218 80% 39%;
+    /* Sapphire #124EB3 */
+    --accent-foreground: 220 27% 98%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 220 27% 98%;
+
+    --border: 215 25% 15%;
+    /* Subtle border */
+    --input: 215 25% 15%;
+    --ring: 217 87% 51%;
+
+    /* Custom colors */
+    --emerald: 150 100% 40%;
+    --emerald-light: 150 80% 50%;
+    --cyan: 190 90% 50%;
+    --amber: 40 100% 55%;
+    --orange: 25 100% 60%;
+    --blue: 217 87% 51%;
+    --rose: 340 85% 60%;
+
+    /* Chart colors */
+    --chart-1: 217 87% 51%;
+    /* Bluetiful */
+    --chart-2: 218 80% 39%;
+    /* Sapphire */
+    --chart-3: 190 90% 50%;
+    /* Cyan (Contrast) */
+    --chart-4: 40 100% 55%;
+    /* Amber (Contrast) */
+    --chart-5: 217 82% 26%;
+    /* Dark Cornflower */
+
+    --sidebar-background: 210 41% 5%;
+    /* Slightly darker/richer */
+    --sidebar-foreground: 215 20% 85%;
+    --sidebar-primary: 217 87% 51%;
+    --sidebar-primary-foreground: 220 27% 98%;
+    --sidebar-accent: 217 82% 16%;
+    --sidebar-accent-foreground: 220 27% 98%;
+    --sidebar-border: 215 25% 12%;
+    --sidebar-ring: 217 87% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/30 selection:text-white;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom Scrollbar - Thinner & Sleeker */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full hover:bg-primary/50 transition-colors;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-blue to-cyan bg-clip-text text-transparent;
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-amber via-orange to-amber bg-clip-text text-transparent;
+  }
+
+  .glass-card {
+    @apply bg-card/40 backdrop-blur-xl border-white/5 shadow-lg hover:shadow-primary/5 transition-all duration-300;
+  }
+
+  .glass-header {
+    @apply bg-background/60 backdrop-blur-xl border-b border-border/40 sticky top-0 z-50 supports-[backdrop-filter]:bg-background/60;
+  }
+
+  .glass-effect {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+
+  /* Animation Utilities */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
+  }
+}
